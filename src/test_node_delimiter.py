@@ -8,18 +8,18 @@ class TestNodeDelimiter(unittest.TestCase):
         result = split_nodes_delimiter([node], "**", TextType.BOLD)
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0].text, "This is just plain text")
-        self.assertEqual(result[0].TextType, TextType.TEXT)
+        self.assertEqual(result[0].text_type, TextType.TEXT)
 
     def test_delimiter_simple(self):
         node = TextNode("This is **bold** text", TextType.TEXT)
         result = split_nodes_delimiter([node], "**", TextType.BOLD)
         self.assertEqual(len(result), 3)
         self.assertEqual(result[0].text, "This is ")
-        self.assertEqual(result[0].TextType, TextType.TEXT)
+        self.assertEqual(result[0].text_type, TextType.TEXT)
         self.assertEqual(result[1].text, "bold")
-        self.assertEqual(result[1].TextType, TextType.BOLD)
+        self.assertEqual(result[1].text_type, TextType.BOLD)
         self.assertEqual(result[2].text, " text")
-        self.assertEqual(result[2].TextType, TextType.TEXT)
+        self.assertEqual(result[2].text_type, TextType.TEXT)
 
     def test_delimiter_complex(self):
         node = TextNode("This is **bold** and *italic* text", TextType.TEXT)
