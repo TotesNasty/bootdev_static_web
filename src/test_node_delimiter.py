@@ -1,6 +1,6 @@
 import unittest
 from textnode import TextNode, TextType
-from node_delimiter import split_nodes_delimiter, text_to_nodes
+from node_delimiter import split_nodes_delimiter, text_to_textnodes
 
 
 class TestNodeDelimiter(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestNodeDelimiter(unittest.TestCase):
         self.assertEqual(len(result), 4)
 
     def test_text_to_textnode(self):
-        nodes= text_to_nodes(
+        nodes= text_to_textnodes(
                 "This is **text** with an _italic_ word and a `code block` and an ![image](https://i.imgur.com/zjjcJKZ.png) and a [link](https://boot.dev)"
             )
         self.assertListEqual(
